@@ -447,3 +447,25 @@ header .navbar ul li a:hover{
     font-size: 4.5rem;
     color: var(--yellow);
 }
+
+header .social{
+    display: flex;
+}
+
+header .social a{
+    margin: 0 1rem;
+    
+}
+
+
+header .social a i{
+    padding: 0.5rem;
+    border-radius: 3rem;
+    color: var(--yellow);
+    font-size: 3rem;
+}
+
+header .social a i:hover{
+    color: white;
+    background: #222;
+}
