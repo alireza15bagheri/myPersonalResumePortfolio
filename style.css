@@ -376,8 +376,9 @@ header .navbar ul li a:hover{
 }
 
 .portfolio .box-container .box:hover img{
-    transform: scale(1.2);
+    /* transform: scale(1.2); */
 }
+
 
 .contact .row{
     display: flex;
