@@ -363,11 +363,10 @@ header .navbar ul li a:hover{
 .portfolio .box-container .box{
     height: 20rem;
     width: 26rem;
-    border-radius: 1rem;
     margin: 2rem;
     overflow: hidden;
     cursor: pointer;
-
+    padding: 1.5rem;
     
 
 }
@@ -377,6 +376,7 @@ header .navbar ul li a:hover{
     height: 100%;
     width: 100%;
     object-fit: cover;
+    border-radius: 1rem;
 
     --x-pos: 0;
     --y-angle: calc(var(--x-pos) * 8deg);
