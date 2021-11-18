@@ -367,17 +367,27 @@ header .navbar ul li a:hover{
     margin: 2rem;
     overflow: hidden;
     cursor: pointer;
+
+    
+
 }
 
 .portfolio .box-container .box img{
+    margin: 0.5rem;
     height: 100%;
     width: 100%;
     object-fit: cover;
+
+    --x-pos: 0;
+    --y-angle: calc(var(--x-pos) * 8deg);
+    --y-pos: 0;
+    --x-angle: calc(var(--y-pos) * 8deg);
+
+    transform: perspective(13rem)
+    rotateY(var(--y-angle))
+    rotateX(var(--x-angle));
 }
 
-.portfolio .box-container .box:hover img{
-    /* transform: scale(1.2); */
-}
 
 
 .contact .row{
