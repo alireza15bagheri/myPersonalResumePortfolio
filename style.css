@@ -480,3 +480,26 @@ header .social a i:hover{
     color: white;
     background: #222;
 }
+
+a.typewrite{
+    text-decoration: none;
+    color: #000;
+}
+
+span.wrap {
+    border-right: 0.08em solid white;
+    animation: blink-animation 3s steps(5, start) infinite;
+    -webkit-animation: blink-animation 1s steps(5, start) infinite;
+}
+
+@keyframes blink-animation {
+    to {
+      border-right: none;
+    }
+}
+
+@-webkit-keyframes blink-animation {
+    to {
+        border-right: none;
+    }
+  }
