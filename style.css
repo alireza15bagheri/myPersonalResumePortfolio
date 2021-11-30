@@ -150,6 +150,7 @@ header .navbar ul li a:hover{
     justify-content: center;
     align-items: center;
     border-radius: 1.5rem;
+    opacity: 0.5;
 
 }
 
@@ -516,7 +517,16 @@ span.wrap {
     border-radius: 10px;
 }
 
-.hamburger::before,
+.hamburger::before {
+    content: '';
+    position: absolute;
+    width: 5.5rem;
+    height: 0.5rem;   
+    background: white;
+    transition: 0.5s ease-in-out;
+    border-radius: 10px;
+}
+
 .hamburger::after {
     content: '';
     position: absolute;
