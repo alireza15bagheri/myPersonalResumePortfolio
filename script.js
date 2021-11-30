@@ -1,3 +1,19 @@
+let isMenuOpen = false;
+
+const menuButton = document.querySelector('#menu')
+
+menuButton.addEventListener("click", () => {
+    isMenuOpen = !isMenuOpen;
+    $('header').toggleClass('toggle');
+
+
+    if (isMenuOpen) {
+        menuButton.classList.add("open")
+    } else {
+        menuButton.classList.remove("open")
+    }
+})
+
 function typeWriter() {
 
     let TxtType = function (el, toRotate, period) {
@@ -81,13 +97,8 @@ for (let item of containers.entries()) {
 $(document).ready(function () {
 
 
-    $('#menu').click(function () {
-        $(this).toggleClass('fa-times');
-        $('header').toggleClass('toggle');
-    });
 
     $(window).on('scroll load', function () {
-        $('#menu').removeClass('fa-times');
         $('header').removeClass('toggle');
 
         if ($(window).scrollTop() > 0) {

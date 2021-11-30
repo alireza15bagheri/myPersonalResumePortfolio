@@ -138,15 +138,19 @@ header .navbar ul li a:hover{
 }
 
 #menu{
+    display: none;
     position: fixed;
     top: 2rem; right: 2rem;
     background: #333;
+    transition: 0.5s ease-in-out;
     color: #fff;
     cursor: pointer;
-    font-size: 2.5rem;
-    padding: 1rem 1.5rem;
+    padding: 3.5rem 1.5rem;
     z-index: 1000;
-    display: none;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1.5rem;
+
 }
 
 /* meida queries */
@@ -503,3 +507,41 @@ span.wrap {
         border-right: none;
     }
   }
+
+  .hamburger {
+    width: 5.5rem;
+    height: 0.5rem; 
+    background-color: white;
+    transition: 0.25s ease-in-out;
+    border-radius: 10px;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    width: 5.5rem;
+    height: 0.5rem;   
+    background: white;
+    transition: 0.5s ease-in-out;
+    border-radius: 10px;
+}
+
+.hamburger::before {
+    transform: translateY(-20px);
+}
+.hamburger::after {
+    transform: translateY(20px);
+}
+
+.open .hamburger  {
+    background-color: transparent;
+}
+
+.open .hamburger::before {
+    transform: rotate(-45deg);
+}
+
+.open .hamburger::after {
+    transform: rotate(45deg);
+}
