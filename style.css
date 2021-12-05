@@ -154,6 +154,9 @@ header .navbar ul li a:hover{
 
 }
 
+#menu:focus{
+    outline: none;
+}
 /* meida queries */
 
 @media (max-width:1200px){
@@ -542,6 +545,10 @@ span.wrap {
 }
 .hamburger::after {
     transform: translateY(20px);
+}
+
+.hamburger:focus {
+    outline: none;
 }
 
 .open .hamburger  {
