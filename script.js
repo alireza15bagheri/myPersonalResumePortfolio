@@ -100,6 +100,8 @@ $(document).ready(function () {
 
     $(window).on('scroll load', function () {
         $('header').removeClass('toggle');
+        menuButton.classList.remove("open");
+        isMenuOpen = false;
 
         if ($(window).scrollTop() > 0) {
             $('.top').show();

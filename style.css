@@ -157,73 +157,7 @@ header .navbar ul li a:hover{
 #menu:focus{
     outline: none;
 }
-/* meida queries */
 
-@media (max-width:1200px){
-    html{
-        font-size: 55%;
-    }
-
-    .home{
-        padding: 1rem 4rem;
-    }
-}
-
-@media (max-width:991px){
-    
-    header{
-        left:-120%;
-    }
-
-    #menu{
-        display: block;
-    }
-
-    header.toggle{
-        left: 0%;
-    }
-
-    body{
-        padding: 1rem;
-    }
-
-}
-
-@media (max-width:768px){
-    
-    html{
-        font-size:50%;
-    }
-
-}
-
-@media (max-width:400px){
-    
-    header{
-        width:100vw;
-    }
-
-    .heading{
-        margin:0 3rem;
-    }
-
-    .about .row .counter .box{
-        width: 100%;
-    }
-
-    .education .box-container .box{
-        width: 100%;
-    }
-
-    .portfolio .box-container .box{
-        width: 100%;
-    }
-
-    .contact .row form{
-        margin: 3rem 0;
-    }
-
-}
 
 .home{
     display: flex;
@@ -251,6 +185,7 @@ header .navbar ul li a:hover{
     font-size: 2rem;
     color: #eee;
     padding: 1rem 0;
+    text-transform: none;
 }
 
 .about .row{
@@ -561,4 +496,80 @@ span.wrap {
 
 .open .hamburger::after {
     transform: rotate(45deg);
+}
+
+/* -------- MEDIA QUERIES ---------- */
+
+@media (max-width:1200px){
+    html{
+        font-size: 55%;
+    }
+
+    .home{
+        padding: 1rem 4rem;
+    }
+}
+
+@media (max-width:991px){
+    
+    header{
+        left:-120%;
+    }
+
+    #menu{
+        display: block;
+    }
+
+    header.toggle{
+        left: 0%;
+    }
+
+    body{
+        padding: 1rem;
+    }
+
+}
+
+@media (max-width:768px){
+    
+    html{
+        font-size:50%;
+    }
+
+    a.typewrite span.wrap {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 481px){
+}
+
+@media (max-width:400px){
+
+    
+    
+    header{
+        width:100vw;
+    }
+
+    .heading{
+        margin:0 3rem;
+    }
+
+    .about .row .counter .box{
+        width: 100%;
+    }
+
+    .education .box-container .box{
+        width: 100%;
+    }
+
+    .portfolio .box-container .box{
+        width: 100%;
+    }
+
+    .contact .row form{
+        margin: 3rem 0;
+    }
+
 }
