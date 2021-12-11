@@ -1,19 +1,44 @@
+// Required Elements for menuButton and the menu on smaller screens:
 let isMenuOpen = false;
-
+const headerEl = document.querySelector('header')
 const menuButton = document.querySelector('#menu')
 
-menuButton.addEventListener("click", () => {
-    isMenuOpen = !isMenuOpen;
-    $('header').toggleClass('toggle');
+// Required Elements for portfolio section 3D Card Effects:
+const containers = document.querySelectorAll('.portfolio .box-container .box');
+const card = document.querySelectorAll('.card');
+const { width, height } = containers[1].getBoundingClientRect();
 
+function add3dEffectToPortfolioCards() {
+
+    for (let item of containers.entries()) {
+    
+        item[1].addEventListener('mousemove', (event) => {
+            const { offsetX, offsetY } = event;
+    
+            card[item[0]].style.setProperty('--x-pos', (offsetX / width) - 0.5);
+            card[item[0]].style.setProperty('--y-pos', (offsetY / width) - 0.5);
+        })
+
+    }
+
+}
+
+
+// Toggle Header visibility On small screens function
+function openCloseMenu(){
+    isMenuOpen = !isMenuOpen;
+    headerEl.classList.toggle('toggle')
 
     if (isMenuOpen) {
         menuButton.classList.add("open")
     } else {
         menuButton.classList.remove("open")
     }
-})
+}
 
+menuButton.addEventListener("click", openCloseMenu)
+
+// TypeWriter Text Effect on the home section:
 function typeWriter() {
 
     let TxtType = function (el, toRotate, period) {
@@ -68,50 +93,30 @@ function typeWriter() {
             }
         }
 
-
     };
 
 }
 
 
-
-typeWriter();
-
-
-const containers = document.querySelectorAll('.portfolio .box-container .box');
-const card = document.querySelectorAll('.card');
-const { width, height } = containers[1].getBoundingClientRect();
-
-for (let item of containers.entries()) {
-
-    item[1].addEventListener('mousemove', (event) => {
-        const { offsetX, offsetY } = event;
-
-        card[item[0]].style.setProperty('--x-pos', (offsetX / width) - 0.5);
-        card[item[0]].style.setProperty('--y-pos', (offsetY / width) - 0.5);
-    })
-}
-
-
-
 $(document).ready(function () {
-
-
+    
+    const goToTopIcon = document.querySelector('.top')
 
     $(window).on('scroll load', function () {
-        $('header').removeClass('toggle');
+        
+        headerEl.classList.remove('toggle')
         menuButton.classList.remove("open");
         isMenuOpen = false;
+        
 
-        if ($(window).scrollTop() > 0) {
-            $('.top').show();
+        if (window.scrollY > 200) {
+            goToTopIcon.style.display = 'block';
         } else {
-            $('.top').hide();
+            goToTopIcon.style.display = 'none';
         }
     });
 
-    // Smooth Scrolling:
-
+    // Smooth Scrolling using JQuery:
     $('a[href*="#"]').on('click', function (e) {
 
         e.preventDefault();
@@ -126,3 +131,37 @@ $(document).ready(function () {
     });
 
 });
+
+
+// Send Email Function...
+const send_mail_form = document.querySelector('.send-mail-form')
+
+function sendMail(e) {
+    e.preventDefault();
+
+    // Form Elements:
+    const form_name = document.querySelector('.box.name')
+    const form_email = document.querySelector('.box.email')
+    const form_project = document.querySelector('.box.project')
+    const form_message = document.querySelector('.box.message')
+
+
+    Email.send({
+        SecureToken: "67ff4c1e-d190-4abf-b3ad-0726802bdb64",
+        To: 'alireza15.bagheri@gmail.com',
+        From: "haven270@gmail.com",
+        Subject: "test email from alirezapersonal.ir",
+        Body: "This is the test body of email..."
+    }).then(
+        message => alert(message)
+    );
+
+}
+
+send_mail_form.addEventListener('submit', sendMail)
+
+
+// onLoad:
+
+typeWriter();
+add3dEffectToPortfolioCards();

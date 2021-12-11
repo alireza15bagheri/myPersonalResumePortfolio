@@ -11,7 +11,7 @@
     text-decoration: none;
     outline: none; border: none;
     text-transform: capitalize;
-    transition: all .2s linear;
+    transition: all .3s linear;
 }
 
 *::selection{
@@ -461,7 +461,7 @@ span.wrap {
     width: 5.5rem;
     height: 0.5rem;   
     background: white;
-    transition: 0.5s ease-in-out;
+    transition: 0.3s ease-in-out;
     border-radius: 10px;
 }
 
@@ -471,7 +471,7 @@ span.wrap {
     width: 5.5rem;
     height: 0.5rem;   
     background: white;
-    transition: 0.5s ease-in-out;
+    transition: 0.3s ease-in-out;
     border-radius: 10px;
 }
 
