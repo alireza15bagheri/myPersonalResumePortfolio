@@ -11,10 +11,10 @@ const { width, height } = containers[1].getBoundingClientRect();
 function add3dEffectToPortfolioCards() {
 
     for (let item of containers.entries()) {
-    
+
         item[1].addEventListener('mousemove', (event) => {
             const { offsetX, offsetY } = event;
-    
+
             card[item[0]].style.setProperty('--x-pos', (offsetX / width) - 0.5);
             card[item[0]].style.setProperty('--y-pos', (offsetY / width) - 0.5);
         })
@@ -25,7 +25,7 @@ function add3dEffectToPortfolioCards() {
 
 
 // Toggle Header visibility On small screens function
-function openCloseMenu(){
+function openCloseMenu() {
     isMenuOpen = !isMenuOpen;
     headerEl.classList.toggle('toggle')
 
@@ -99,15 +99,15 @@ function typeWriter() {
 
 
 $(document).ready(function () {
-    
+
     const goToTopIcon = document.querySelector('.top')
 
     $(window).on('scroll load', function () {
-        
+
         headerEl.classList.remove('toggle')
         menuButton.classList.remove("open");
         isMenuOpen = false;
-        
+
 
         if (window.scrollY > 200) {
             goToTopIcon.style.display = 'block';
@@ -133,32 +133,6 @@ $(document).ready(function () {
 });
 
 
-// Send Email Function...
-const send_mail_form = document.querySelector('.send-mail-form')
-
-function sendMail(e) {
-    e.preventDefault();
-
-    // Form Elements:
-    const form_name = document.querySelector('.box.name')
-    const form_email = document.querySelector('.box.email')
-    const form_project = document.querySelector('.box.project')
-    const form_message = document.querySelector('.box.message')
-
-
-    Email.send({
-        SecureToken: "67ff4c1e-d190-4abf-b3ad-0726802bdb64",
-        To: 'alireza15.bagheri@gmail.com',
-        From: "haven270@gmail.com",
-        Subject: "test email from alirezapersonal.ir",
-        Body: "This is the test body of email..."
-    }).then(
-        message => alert(message)
-    );
-
-}
-
-send_mail_form.addEventListener('submit', sendMail)
 
 
 // onLoad:
