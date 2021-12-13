@@ -2,12 +2,12 @@
 let isMenuOpen = false;
 const headerEl = document.querySelector('header')
 const menuButton = document.querySelector('#menu')
-
+const form = document.querySelector('form')
 // Form inputs:
 const form_name = document.getElementById('form_name')
 const form_email = document.getElementById('form_email')
 const form_message = document.getElementById('form_message')
-
+const form_warning = document.querySelector('.form-not-valid')
 
 // Required Elements for portfolio section 3D Card Effects:
 const containers = document.querySelectorAll('.portfolio .box-container .box');
@@ -145,6 +145,18 @@ $(document).ready(function () {
 
 
 // object Event Listeners:
+
+
+form.addEventListener('submit', (e) => {
+    if (form_name.value === '' || form_email.value === '' || form_name.value === '') {
+        form_warning.hidden = false;
+        e.preventDefault()
+    } else {
+        form_warning.hidden = true;
+    }
+
+})
+
 
 
 // onLoad:

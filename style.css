@@ -402,6 +402,17 @@ header .navbar ul li a:hover{
     color: var(--yellow);
 }
 
+.form-not-valid{
+    letter-spacing: 0.1rem;
+    font-size: 2rem;
+    text-align: center;
+    color: #111;
+    background: var(--yellow);
+    border-radius: 1rem;
+    transition: all 0.3s ease-in-out;
+    margin: 1rem auto;
+}
+
 header .social{
     display: flex;
 }
