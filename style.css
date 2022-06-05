@@ -151,7 +151,7 @@ header .navbar ul li a:hover{
     align-items: center;
     border-radius: 1.5rem;
     opacity: 0.5;
-
+    user-select: none;
 }
 
 #menu:focus{
