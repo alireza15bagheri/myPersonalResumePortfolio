@@ -308,7 +308,7 @@ header .navbar ul li a:hover{
     height: 20rem;
     width: 26rem;
     margin: 2rem;
-    overflow: hidden;
+    /* overflow: hidden; */
     cursor: pointer;
     padding: 1.5rem;
     
@@ -331,8 +331,14 @@ header .navbar ul li a:hover{
     rotateY(var(--y-angle))
     rotateX(var(--x-angle));
 }
-
-
+/* text style under the images of projects in the portfolio section*/
+.portfolio .box-container .box p {
+    font-size: 1.6rem;
+    color: #fff;
+    font-style: bold;
+    text-align: center;
+    margin-top: 1rem;
+}
 
 .contact .row{
     display: flex;
