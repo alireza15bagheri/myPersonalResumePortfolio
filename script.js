@@ -12,28 +12,29 @@ const form_warning = document.querySelector('.form-not-valid')
 // Required Elements for portfolio section 3D Card Effects:
 const containers = document.querySelectorAll('.portfolio .box-container .box');
 const card = document.querySelectorAll('.card');
-const { width, height } = containers[1].getBoundingClientRect();
 
 function add3dEffectToPortfolioCards() {
-
-    for (let item of containers.entries()) {
-
-        item[1].addEventListener('mousemove', (event) => {
+    containers.forEach((container, i) => {
+        const { width, height } = container.getBoundingClientRect();
+        
+        container.addEventListener('mousemove', (event) => {
             const { offsetX, offsetY } = event;
+            card[i].style.setProperty('--x-pos', (offsetX / width) - 0.5);
+            card[i].style.setProperty('--y-pos', (offsetY / height) - 0.5);
+        });
 
-            card[item[0]].style.setProperty('--x-pos', (offsetX / width) - 0.5);
-            card[item[0]].style.setProperty('--y-pos', (offsetY / width) - 0.5);
-        })
-
-    }
-
+        container.addEventListener('mouseleave', () => {
+            card[i].style.setProperty('--x-pos', 0);
+            card[i].style.setProperty('--y-pos', 0);
+        });
+    });
 }
-
 
 // Toggle Header visibility On small screens function
 function openCloseMenu() {
     isMenuOpen = !isMenuOpen;
     headerEl.classList.toggle('toggle')
+    menuButton.setAttribute('aria-expanded', isMenuOpen);
 
     if (isMenuOpen) {
         menuButton.classList.add("open")
@@ -46,120 +47,107 @@ menuButton.addEventListener("click", openCloseMenu)
 
 // TypeWriter Text Effect on the home section:
 function typeWriter() {
-
-    let TxtType = function (el, toRotate, period) {
-        this.toRotate = toRotate;
-        this.el = el;
-        this.loopNum = 0;
-        this.period = parseInt(period, 10) || 2000;
-        this.txt = '';
-        this.tick();
-        this.isDeleting = false;
-    };
-
-    TxtType.prototype.tick = function () {
-        let i = this.loopNum % this.toRotate.length;
-        let fullTxt = this.toRotate[i];
-
-        if (this.isDeleting) {
-            this.txt = fullTxt.substring(0, this.txt.length - 1);
-        } else {
-            this.txt = fullTxt.substring(0, this.txt.length + 1);
-        }
-
-        this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
-
-        let that = this;
-        let delta = 200 - Math.random() * 100;
-
-        if (this.isDeleting) { delta /= 2; }
-
-        if (!this.isDeleting && this.txt === fullTxt) {
-            delta = this.period;
-            this.isDeleting = true;
-        } else if (this.isDeleting && this.txt === '') {
-            this.isDeleting = false;
-            this.loopNum++;
-            delta = 500;
-        }
-
-        setTimeout(function () {
-            that.tick();
-        }, delta);
-
-    };
-
-    window.onload = function () {
-        let elements = document.getElementsByClassName('typewrite');
-        for (let i = 0; i < elements.length; i++) {
-            let toRotate = elements[i].getAttribute('data-type');
-            let period = elements[i].getAttribute('data-period');
-            if (toRotate) {
-                new TxtType(elements[i], JSON.parse(toRotate), period);
+    const elements = document.getElementsByClassName('typewrite');
+    
+    for (const el of elements) {
+        const toRotate = JSON.parse(el.getAttribute('data-type'));
+        const period = parseInt(el.getAttribute('data-period'), 10) || 2000;
+        
+        let loopNum = 0;
+        let txt = '';
+        let isDeleting = false;
+        const wrap = document.createElement('span');
+        wrap.className = 'wrap';
+        el.innerHTML = '';
+        el.appendChild(wrap);
+        
+        function tick() {
+            const i = loopNum % toRotate.length;
+            const fullTxt = toRotate[i];
+            
+            if (isDeleting) {
+                txt = fullTxt.substring(0, txt.length - 1);
+            } else {
+                txt = fullTxt.substring(0, txt.length + 1);
             }
+            
+            wrap.textContent = txt;
+            
+            let delta = 200 - Math.random() * 100;
+            if (isDeleting) delta /= 2;
+            
+            if (!isDeleting && txt === fullTxt) {
+                delta = period;
+                isDeleting = true;
+            } else if (isDeleting && txt === '') {
+                isDeleting = false;
+                loopNum++;
+                delta = 500;
+            }
+            
+            setTimeout(tick, delta);
         }
-
-        form_name.value = ''
-        form_email.value = ''
-        form_message.value = ''
-
-    };
-
+        tick();
+    }
 }
 
+// Debounce utility
+function debounce(fn, delay) {
+    let timeoutId;
+    return (...args) => {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => fn(...args), delay);
+    };
+}
 
-$(document).ready(function () {
+// Initialize on DOM ready
+document.addEventListener('DOMContentLoaded', () => {
+    const goToTopIcon = document.querySelector('.top');
 
-    const goToTopIcon = document.querySelector('.top')
-
-    $(window).on('scroll load', function () {
-
-        headerEl.classList.remove('toggle')
+    // Scroll handler with debounce
+    window.addEventListener('scroll', debounce(() => {
+        headerEl.classList.remove('toggle');
         menuButton.classList.remove("open");
+        menuButton.setAttribute('aria-expanded', 'false');
         isMenuOpen = false;
-
 
         if (window.scrollY > 200) {
             goToTopIcon.style.display = 'block';
         } else {
             goToTopIcon.style.display = 'none';
         }
+    }, 100));
+
+    // Smooth Scrolling - native
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', e => {
+            e.preventDefault();
+            const target = document.querySelector(anchor.getAttribute('href'));
+            target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            
+            // Close mobile menu on link click
+            if (isMenuOpen) {
+                openCloseMenu();
+            }
+        });
     });
 
-    // Smooth Scrolling using JQuery:
-    $('a[href*="#"]').on('click', function (e) {
-
-        e.preventDefault();
-
-        $('html, body').animate({
-            scrollTop: $($(this).attr('href')).offset().top,
-        },
-            500,
-            'linear'
-        );
-
+    // Form validation
+    form.addEventListener('submit', (e) => {
+        const isValid = form_name.value.trim() && 
+                        form_email.value.trim() && 
+                        form_message.value.trim();
+        
+        form_warning.hidden = isValid;
+        if (!isValid) e.preventDefault();
     });
 
+    // Clear form on load
+    form_name.value = '';
+    form_email.value = '';
+    form_message.value = '';
+
+    // Initialize effects
+    typeWriter();
+    add3dEffectToPortfolioCards();
 });
-
-
-
-// object Event Listeners:
-
-
-form.addEventListener('submit', (e) => {
-    if (form_name.value === '' || form_email.value === '' || form_name.value === '') {
-        form_warning.hidden = false;
-        e.preventDefault()
-    } else {
-        form_warning.hidden = true;
-    }
-
-})
-
-
-
-// onLoad:
-
-typeWriter();
-add3dEffectToPortfolioCards();

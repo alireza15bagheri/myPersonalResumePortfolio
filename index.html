@@ -4,27 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Portfolio</title>
-    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"> -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Alireza Bagheri - Frontend Developer portfolio showcasing projects, skills, and experience in JavaScript, React, Vue, and modern web development.">
+    <meta name="keywords" content="frontend developer, portfolio, JavaScript, React, Vue, web development, software engineer">
+    <meta property="og:title" content="Alireza Bagheri | Frontend Developer">
+    <meta property="og:description" content="Frontend Developer portfolio with projects and experience.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alireza15bagheri.github.io/myPersonalResumePortfolio/">
+    <meta property="og:image" content="images/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Alireza Bagheri | Frontend Developer">
+    <meta name="twitter:description" content="Frontend Developer portfolio with projects and experience.">
+    <title>Alireza Bagheri | Frontend Developer Portfolio</title>
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
-
 </head>
 
 <body>
-
     <header>
-
         <!-- Header Section Start  -->
         <div class="user">
-            <img src="images/pic.jpg" alt="my image">
+            <img src="images/pic.jpg" alt="Alireza Bagheri - Frontend Developer">
             <h3 class="name">Alireza Bagheri</h3>
             <p class="post">frontend developer</p>
         </div>
 
-        <nav class="navbar">
+        <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
             <ul>
                 <li><a href="#home">home</a></li>
                 <li><a href="#about">about</a></li>
@@ -34,33 +42,29 @@
             </ul>
         </nav>
         <div class="social">
-            <a href="https://github.com/alireza15bagheri"><i class="fab fa-github"></i></a>
-
+            <a href="https://github.com/alireza15bagheri" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile"><i class="fab fa-github"></i></a>
         </div>
     </header>
 
     <!-- Header Section Ends -->
 
-    <div id="menu">
-        <div class="hamburger"></div>
-    </div>
+    <button id="menu" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navbar">
+        <span class="hamburger" aria-hidden="true"></span>
+    </button>
 
     <!-- Home Section Starts -->
     <section class="home" id="home">
         <h3>HI THERE!</h3>
-        <!-- inside h1 tag bellow I'M <span>Alireza Bagheri</span> -->
         <h1>
-
             <a href="" class="typewrite" data-period="3000"
                 data-type='[ "Hi, I\u0027m Alireza.", "I\u0027m a frontend developer.", "I\u0027m an engineer.", "I\u0027m a designer.", "I love to code.", "I love solving problems.", "I love Javascript." ]'>
                 <span class="wrap"></span>
             </a>
-
         </h1>
-        <p>I'm interested in web developement specially the backend and secondly frontend, studied software engineering
+        <p>I'm interested in web development specially the backend and secondly frontend, studied software engineering
             in Shamsipour university which is ranked as the best technical and vocational university in Iran also I
             sometimes
-            play video games and watch movies in my leasure times and I choose reading articles as the way of improving
+            play video games and watch movies in my leisure times and I choose reading articles as the way of improving
             my knowledge in my area of expertise.</p>
         <a href="#about"><button class="btn"> about me <i class="fas fa-user"></i></button></a>
     </section>
@@ -72,7 +76,7 @@
         <div class="row">
             <div class="info">
                 <h3><span>name: </span> Alireza Bagheri</h3>
-                <h3><span>age: </span> 27</h3>
+                <h3><span>age: </span> 31</h3>
                 <h3><span>qualification: </span> B. Software Engineering </h3>
                 <h3><span>post: </span> frontend developer</h3>
                 <h3><span>language: </span> English - Persian </h3>
@@ -80,7 +84,6 @@
             </div>
 
             <div class="counter">
-
                 <div class="box">
                     <span>3+</span>
                     <h3>years of practical experience...</h3>
@@ -95,12 +98,7 @@
                     <span>3000+</span>
                     <h3>Hours Of Coding Experience</h3>
                 </div>
-
-
             </div>
-
-
-
         </div>
     </section>
     <!-- About Section Ends -->
@@ -110,7 +108,6 @@
         <h1 class="heading">my <span>education</span></h1>
 
         <div class="box-container">
-
             <div class="box">
                 <i class="fas fa-graduation-cap"></i>
                 <span>2009</span>
@@ -124,7 +121,7 @@
                 <span>2013</span>
                 <h3>graduated from highschool</h3>
                 <p>graduated from a technical and vocational highschool in Eslamshahr and continued pursuing what i was
-                    passionate about which is software engneering.</p>
+                    passionate about which is software engineering.</p>
             </div>
 
             <div class="box">
@@ -143,60 +140,43 @@
                 <p>finally graduated from Shamsipour university of Tehran and having enough knowledge in my field of
                     studies i decided to start practical exposure of what i pursue as my future...</p>
             </div>
-
-
-
         </div>
-
     </section>
-
-
     <!-- Education Section Ends Here -->
 
     <!-- Portfolio Section Starts -->
     <section class="portfolio" id="portfolio">
         <h1 class="heading">my <span>portfolio</span></h1>
         <div class="box-container">
-
             <div class="box">
-                <img src="images/pic.jpg" class="card" alt="">
+                <img src="images/pic.jpg" class="card" alt="Project screenshot placeholder">
             </div>
-
             <div class="box">
-                <img src="images/pic.jpg" class="card" alt="">
+                <img src="images/pic.jpg" class="card" alt="Project screenshot placeholder">
             </div>
-
             <div class="box">
-                <img src="images/pic.jpg" class="card" alt="">
+                <img src="images/pic.jpg" class="card" alt="Project screenshot placeholder">
             </div>
-
             <div class="box">
-                <img src="images/pic.jpg" class="card" alt="">
+                <img src="images/pic.jpg" class="card" alt="Project screenshot placeholder">
             </div>
-
             <div class="box">
-                <img src="images/pic.jpg" class="card" alt="">
+                <img src="images/pic.jpg" class="card" alt="Project screenshot placeholder">
             </div>
-
             <div class="box">
-                <img src="images/pic.jpg" class="card" alt="">
+                <img src="images/pic.jpg" class="card" alt="Project screenshot placeholder">
             </div>
-
             <div class="box">
-                <img src="images/pic.jpg" class="card" alt="">
+                <img src="images/pic.jpg" class="card" alt="Project screenshot placeholder">
             </div>
-
             <div class="box">
-                <img src="images/pic.jpg" class="card" alt="">
+                <img src="images/pic.jpg" class="card" alt="Project screenshot placeholder">
             </div>
-
-
-            <br>
-            <br>
+            <div class="box">
+                <img src="images/pic.jpg" class="card" alt="Project screenshot placeholder">
+            </div>
         </div>
-
     </section>
-
     <!-- Portfolio Section Ends -->
 
     <!-- Contact Section Starts -->
@@ -212,29 +192,24 @@
                 </div>
             </div>
 
-            <form action="https://formspree.io/f/mayvyjbw" method="POST">
+            <form action="https://formspree.io/f/mayvyjbw" method="POST" novalidate>
                 <div hidden class="form-not-valid">Can not submit form with empty fields.</div>
-                <input id="form_name" type="text" name="name" placeholder="Name" class="box">
-                <input id="form_email" type="email" name="_replyto" placeholder="email" class="box">
-                <textarea id="form_message" name="message" cols="30" rows="10" class="box message"
-                    placeholder="message"></textarea>
+                <label for="form_name" class="visually-hidden">Name</label>
+                <input id="form_name" type="text" name="name" placeholder="Name" class="box" required>
+                <label for="form_email" class="visually-hidden">Email</label>
+                <input id="form_email" type="email" name="_replyto" placeholder="email" class="box" required>
+                <label for="form_message" class="visually-hidden">Message</label>
+                <textarea id="form_message" name="message" cols="30" rows="10" class="box message" placeholder="message" required></textarea>
                 <button type="submit" class="btn">send <i class="fas fa-paper-plane"></i></button>
             </form>
-
         </div>
     </section>
-
     <!-- Contact Section Ends -->
 
     <!-- Scroll Top Btn -->
-    <a href="#home" class="top">
+    <a href="#home" class="top" aria-label="Scroll to top">
         <i class="fas fa-arrow-alt-circle-up"></i>
     </a>
     <!-- Scroll Top Btn -->
-
-    <!-- jquery cdn link -->
-    <script src="https://code.jquery.com/jquery-3.6.0.js"
-        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 </body>
-
 </html>
