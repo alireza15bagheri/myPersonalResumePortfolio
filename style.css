@@ -377,31 +377,6 @@ header .navbar ul li a:hover{
     padding-bottom: 0;
 }
 
-.contact .row form{
-    flex: 1 1 45rem;
-    padding: 2rem;
-    margin: 2rem;
-    margin-bottom: 4rem;
-}
-
-.contact .row form .box{
-    padding: var(--space-sm);
-    margin: var(--space-sm) 0;
-    background: #3333;
-    color: #fff;
-    font-size: 1.7rem;
-    width: 100%;
-}
-
-.contact .row form .box::placeholder{
-    text-transform: capitalize;
-}
-
-.contact .row form .message{
-    height: 15rem;
-    resize: none;
-}
-
 .contact .row .content .title{
     text-transform: uppercase;
     color: #fff;
@@ -430,18 +405,6 @@ header .navbar ul li a:hover{
     display: none;
     font-size: 4.5rem;
     color: var(--color-primary);
-}
-
-.form-not-valid{
-    letter-spacing: 0.1rem;
-    font-size: 2rem;
-    text-align: center;
-    color: var(--color-bg);
-    background: var(--color-primary);
-    border-radius: var(--radius-md);
-    transition: all 0.3s ease-in-out;
-    margin: var(--space-sm) auto;
-    padding: var(--space-sm) 0;
 }
 
 header .social{
@@ -631,10 +594,6 @@ span.wrap::before {
 
     .portfolio .box-container .box{
         width: 100%;
-    }
-
-    .contact .row form{
-        margin: 3rem 0;
     }
 
 }
