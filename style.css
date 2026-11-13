@@ -433,29 +433,39 @@ a.typewrite{
 }
 
 span.wrap {
-    display: inline-block;
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
     min-height: 1.2em;
-    border-right: 0.08em solid white;
-    animation: blink-animation 3s steps(5, start) infinite;
-    -webkit-animation: blink-animation 1s steps(5, start) infinite;
+    position: relative;
 }
 
 span.wrap::before {
     content: "\00a0";
     display: inline-block;
+    height: 1.2em;
     width: 0;
-    height: 100%;
+    flex-shrink: 0;
+}
+
+span.wrap::after {
+    content: "";
+    width: 0.08em;
+    height: 1.2em;
+    background: white;
+    animation: blink-animation 1s steps(5, start) infinite;
+    flex-shrink: 0;
 }
 
 @keyframes blink-animation {
     to {
-      border-right: none;
+        background: transparent;
     }
 }
 
 @-webkit-keyframes blink-animation {
     to {
-        border-right: none;
+        background: transparent;
     }
 }
 
