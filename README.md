@@ -16,7 +16,6 @@ A modern, responsive personal portfolio website built with vanilla HTML, CSS, an
 - Typewriter animation with rotating phrases
 - 3D portfolio card hover effect (mouse-tracking CSS transforms)
 - Responsive hamburger menu with animated transition
-- Contact form with client-side validation (Formspree)
 - Native smooth scrolling and scroll-to-top button
 - SEO meta tags (Open Graph, Twitter Cards)
 - WCAG 2.1 AA accessibility patterns
@@ -29,7 +28,6 @@ A modern, responsive personal portfolio website built with vanilla HTML, CSS, an
 |----------|--------------|
 | **Core** | HTML5, CSS3 (Custom Properties, Flexbox, Grid), Vanilla JavaScript (ES6+) |
 | **CDN** | Font Awesome 6.2.1 (async), Google Fonts (Nunito, preconnect) |
-| **Services** | Formspree (form endpoint) |
 
 No build tools, bundlers, or dependencies required.
 
@@ -53,4 +51,4 @@ Open `index.html` directly in a browser for zero-setup viewing.
 
 ## Project Status
 
-**Production-ready** — deployed on GitHub Pages. Portfolio images currently use placeholders; replace with actual project screenshots for a complete showcase.
+**Deployed** — live at [https://alirezapersonal.ir/](https://alirezapersonal.ir/). Portfolio images currently use placeholders; replace with actual project screenshots for a complete showcase.
