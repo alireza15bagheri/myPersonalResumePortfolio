@@ -3,23 +3,27 @@ let isMenuOpen = false;
 const headerEl = document.querySelector('header')
 const menuButton = document.querySelector('#menu')
 
-// Required Elements for portfolio section 3D Card Effects:
-const containers = document.querySelectorAll('.portfolio .box-container .box');
-const card = document.querySelectorAll('.card');
-
+// Portfolio section 3D Card Effects:
 function add3dEffectToPortfolioCards() {
-    containers.forEach((container, i) => {
-        const { width, height } = container.getBoundingClientRect();
-        
+    document.querySelectorAll('.portfolio .box-container .box').forEach(container => {
+        // Resolve each card from its own box so the two collections cannot drift apart.
+        const card = container.querySelector('.card');
+        if (!card) return;
+
         container.addEventListener('mousemove', (event) => {
-            const { offsetX, offsetY } = event;
-            card[i].style.setProperty('--x-pos', (offsetX / width) - 0.5);
-            card[i].style.setProperty('--y-pos', (offsetY / height) - 0.5);
+            // Read geometry per event: a cached rect goes stale after resize/breakpoint changes.
+            const { width, height, left, top } = container.getBoundingClientRect();
+            if (!width || !height) return;
+
+            // offsetX/offsetY are relative to the event target (the img), not the box.
+            // Viewport-based clientX/clientY minus the box origin gives the correct ratio.
+            card.style.setProperty('--x-pos', ((event.clientX - left) / width) - 0.5);
+            card.style.setProperty('--y-pos', ((event.clientY - top) / height) - 0.5);
         });
 
         container.addEventListener('mouseleave', () => {
-            card[i].style.setProperty('--x-pos', 0);
-            card[i].style.setProperty('--y-pos', 0);
+            card.style.setProperty('--x-pos', 0);
+            card.style.setProperty('--y-pos', 0);
         });
     });
 }

@@ -53,8 +53,8 @@
     box-sizing: border-box;
     text-decoration: none;
     outline: none; border: none;
-    transition: all var(--transition-base);
 }
+/* Transitions are scoped below to elements that actually change state. */
 
 *::selection{
     background: var(--color-primary);
@@ -97,6 +97,7 @@ section{
     margin-top: var(--space-sm);
     font-size: 2rem;
     border-radius: var(--radius-lg);
+    transition: background-color var(--transition-base);
 }
 
 .btn i{
@@ -133,6 +134,7 @@ header{
     justify-content: center;
     flex-flow: column;
     text-align: center;
+    transition: left var(--transition-base);
 }
 
 header .user img{
@@ -171,6 +173,7 @@ header .navbar ul li a{
     color: #fff;
     font-size: var(--font-size-lg);
     border-radius: var(--radius-lg);
+    transition: background-color var(--transition-base);
 }
 
 header .navbar ul li a:hover{
@@ -194,10 +197,8 @@ header .navbar ul li a:hover{
     user-select: none;
 }
 
-#menu:focus{
-    outline: none;
-    border: none;
-}
+/* #menu:focus outline suppression removed: the ID selector was overriding
+   *:focus-visible and hiding the keyboard focus ring. */
 
 .home{
     display: flex;
@@ -353,6 +354,7 @@ header .navbar ul li a:hover{
     width: 100%;
     object-fit: cover;
     border-radius: var(--radius-md);
+    transition: transform var(--transition-fast);
 
     --x-pos: 0;
     --y-angle: calc(var(--x-pos) * 8deg);
@@ -367,7 +369,7 @@ header .navbar ul li a:hover{
 .contact .row{
     display: flex;
     align-items: center;
-    justify-content: center
+    justify-content: center;
     flex-wrap: wrap;
 }
 
@@ -420,6 +422,7 @@ header .social a i{
     border-radius: 3rem;
     color: var(--color-primary);
     font-size: 3rem;
+    transition: color var(--transition-base), background-color var(--transition-base);
 }
 
 header .social a i:hover{
